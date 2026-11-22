@@ -8,7 +8,7 @@ every run (Pillow writes no timestamps into the PNG).
 
 Layout: masthead + date, three lead cards (Iran/Bahrain, COP31,
 Peru quake), then 8 colour-coded region panels holding 27 more
-stories — 30 dated stories in 8 regions — plus an "Also today"
+stories — 34 dated stories in 8 regions — plus an "Also today"
 ticker. Hierarchy is deliberate: masthead, date and lead headlines
 are far bigger than panel text, so the structure reads at 300 px.
 
@@ -17,7 +17,7 @@ CNN, Reuters, AP, WSJ, OneTurn, Majik, AppiSToS):
  leads: Iran strikes Bahrain; COP31 overtime in Antalya;
         M6.7 Peru quake, 00:09 UTC.
  Middle East: Riyadh intercepts 3 Houthi missiles; two tankers
-        hit near Hormuz; Basra power-station fire; US/Iran nuclear.
+        hit near Hormuz; Basra power-station fire; Trump seeks Iran deal.
  Europe: Kryvyi Rih triple-tap; Sparta II ablaze; Finland
         helicopter incursion; Denmark expels Russian attache.
  Asia: Myanmar rejects ICJ ruling; Manipur toxic alcohol;
@@ -27,9 +27,9 @@ CNN, Reuters, AP, WSJ, OneTurn, Majik, AppiSToS):
  Markets: AI sell-off correction; Anthropic debut; Canada retail.
  Science: Wolbachia dengue cut; Voyager one light-day out;
         UN autonomous-weapons progress.
- Africa: Ethiopia displacement; Bayelsa boat; TAZARA rail deal.
+ Africa: Ethiopia displacement; Bayelsa boat; TAZARA overhaul.
  Sport: Cavalry FC title; Harden 51, passes Kobe.
- Ticker: Estonia drone warning; Turkey seizes TV channel;
+ Ticker: Estonia drone warning; Russian missiles in Poland;
         Haiti blast kills 3 Salvadoran soldiers.
 """
 import math
@@ -139,7 +139,7 @@ def main():
     df = font(SANS_B, 24)
     dw = d.textlength(date, font=df)
     d.text(((W - dw) / 2, 100), date, font=df, fill=RED)
-    sub = "30 dated stories  ·  8 regions  ·  all times UTC"
+    sub = "34 dated stories  ·  8 regions  ·  all times UTC"
     sf = font(SANS, 15)
     sw = d.textlength(sub, font=sf)
     d.text(((W - sw) / 2, 130), sub, font=sf, fill=MUTED)
@@ -186,8 +186,8 @@ def main():
              "UKMTO: two strikes off Khasab."),
             ("Basra power station fire kills 4",
              "Hartha plant blaze hurts 35."),
-            ("US cites pressure on Iran's nuclear file",
-             "Three-nation nuclear consensus."),
+            ("Trump seeks 'real deal' with Iran",
+             "Decision on next steps by new year."),
         ]),
         ("EUROPE", NAVY, [
             ("Triple-tap strike kills boy, 7, in Kryvyi Rih",
@@ -226,6 +226,8 @@ def main():
              "Shares fall 8.5% on Friday."),
             ("Canada retail posts best since 2022",
              "Strongest in four years."),
+            ("US stocks post worst week in years",
+             "S&P, Dow −5.7%; Nasdaq −6.5%."),
         ]),
         ("SCIENCE", GREEN, [
             ("Wolbachia mosquitoes cut child dengue 69%",
@@ -234,20 +236,26 @@ def main():
              "A first for a human-made object."),
             ("UN makes progress on killer-robot rules",
              "No binding treaty yet."),
+            ("Voyager 1 suffers data outage",
+             "Telemetry lost at one light-day."),
         ]),
         ("AFRICA", BROWN, [
             ("Ethiopia clashes displace 700,000",
              "50,000 flee into Kenya."),
             ("Bayelsa boat accident kills 4",
              "24 rescued in Bayelsa."),
-            ("Tanzania–Zambia sign $1.4bn rail deal",
-             "China's CCECC to overhaul TAZARA."),
+            ("Tanzania–Zambia $1.4bn rail overhaul under way",
+             "China's CCECC rebuilding TAZARA."),
+            ("EU sends €550k aid for Moyale",
+             "For refugees fleeing to Kenya."),
         ]),
         ("SPORT", PURPLE, [
             ("Cavalry FC win Canadian Premier League",
              "Beat Atlético Ottawa 3–2."),
             ("Harden scores 51, passes Kobe",
              "Cavs beat Pacers 128–119."),
+            ("Herro scores 50 in Bucks loss",
+             "76ers edge Milwaukee 132–129."),
         ]),
     ]
     gx, gy = M, 336
@@ -289,7 +297,7 @@ def main():
     tf2 = font(SANS_B, 15)
     d.text((tx0 + 14, ty0 + 16), "ALSO TODAY", font=tf2, fill=GOLD)
     tick = ("Estonia warns of drone attacks as NATO jets scramble   •   "
-            "Turkey seizes last big independent TV channel   •   "
+            "Russian missiles land in Poland   •   "
             "Haiti blast kills 3 Salvadoran soldiers")
     tkf = font(SANS, 14)
     tlines = wrap(d, tick, tkf, tw_ - 150)
@@ -298,7 +306,7 @@ def main():
     # ---------- footer ----------
     ff = font(SANS, 14)
     foot = ("Compiled from reports published Saturday 21 November 2026  ·  "
-            "Sources: CNN, Reuters, AP, WSJ  ·  One day. 30 stories.")
+            "Sources: CNN, Reuters, AP, WSJ  ·  One day. 34 stories.")
     fw = d.textlength(foot, font=ff)
     d.text(((W - fw) / 2, 1000), foot, font=ff, fill=MUTED)
 
